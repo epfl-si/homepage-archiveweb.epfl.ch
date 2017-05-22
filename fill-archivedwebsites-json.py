@@ -14,6 +14,9 @@ directories = listdirs('/var/www/vhosts/archiveweb.epfl.ch/htdocs/')
 if 'common' in directories:
     directories.remove('common')
 
+if 'templates' in directories:
+    directories.remove('templates')
+
 websites_list = json.dumps(directories)
 
 print 'Number of archived websites = ', len(directories)

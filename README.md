@@ -12,7 +12,7 @@ Installation
   * archived-websites.js
 
 
-* Desploy via SCP the following script in **'exopgesrv48:/home/kis/bin'**:
+* Deploy via SCP the following script in **'exopgesrv48:/home/kis/bin'**:
   * fill-archivedwebsites-json.py
 
 
