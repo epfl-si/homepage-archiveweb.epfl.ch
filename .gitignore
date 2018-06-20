@@ -1,0 +1,8 @@
+# (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2018.
+# See the LICENSE file for more details.
+
+# pyenv
+.python-version
+
+# archived websites list
+archived-websites.json
