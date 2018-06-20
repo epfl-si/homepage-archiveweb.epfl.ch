@@ -3,8 +3,32 @@ Resume
 
 Tool for display the archived websites on the homepage of archiveweb.epfl.ch.
 
-Installation
-------------
+Setup
+-----
+
+To retrieve the list of archived websites:
+
+```bash
+wget https://archiveweb.epfl.ch/archived-websites.json
+```
+
+Run
+---
+
+This will start a server on http://localhost:8000
+
+```bash
+python -m SimpleHTTPServer
+```
+
+or
+
+```bash
+python3 -m http.server
+```
+
+Deploy
+------
 
 * Deploy via FTP the following files in **'exopgesrv48:/var/www/vhosts/archiveweb.epfl.ch/htdocs/'**
   * index.html
