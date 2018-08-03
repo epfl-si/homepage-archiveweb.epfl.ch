@@ -43,9 +43,11 @@ Deploy
 * Install a cronjob in kis user
   * command: `sudo -u vftp /home/kis/bin/fill-archivedwebsites-json.py`
 
-Developer
----------
-* [Olivier Bieler](https://github.com/obieler)
+Developers
+----------
+
+  * [Olivier Bieler](https://github.com/obieler)
+  * [William Belle](https://github.com/williambelle)
 
 License
 -------
