@@ -15,7 +15,11 @@ require(["epfl-jquery"], function($){
           var ul = document.getElementById("list-archived-websites");
           var li = document.createElement("li");
           var a = document.createElement("a");
-          a.href = ("//" + value);
+          if (value.indexOf('epfl.ch') >= 0) {
+            a.href = ("//" + value);
+          } else {
+            a.href = ("http://" + value);
+          }
           a.innerHTML = (value);
           li.appendChild(a);
           ul.appendChild(li);
