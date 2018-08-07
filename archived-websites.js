@@ -15,7 +15,7 @@ require(["epfl-jquery"], function($){
           var ul = document.getElementById("list-archived-websites");
           var li = document.createElement("li");
           var a = document.createElement("a");
-          a.href = ("//" + value);
+          a.href = ("http://" + value);
           a.innerHTML = (value);
           li.appendChild(a);
           ul.appendChild(li);
