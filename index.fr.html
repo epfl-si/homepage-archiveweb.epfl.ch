@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <title>Archives web</title>
+  <title>Sites web de l'EPFL archivés</title>
   <meta charset="utf-8" />
   <meta name="description" content="" />
 
@@ -13,6 +13,11 @@
   <link rel="icon" type="image/png" href="//web2018.epfl.ch/0.0.2/icons/favicon.png">
 
   <link rel="stylesheet" href="//web2018.epfl.ch/0.0.2/css/elements.min.css">
+  <style>
+    #list-archived-websites {
+       min-height: 1000px;
+    }
+  </style>
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,7 +33,7 @@
 </head>
 <body>
 
-  <header role="banner" class="header header-light">
+  <header class="header header-light">
     <div class="drawer mr-3 mr-xl-0">
       <button class="drawer-toggle">
         <svg class="icon" aria-hidden="true">
@@ -43,13 +48,13 @@
     </div>
 
     <div class="header-light-content">
-      <a href="https://www.epfl.ch" class="logo">
-        <img src="https://web2018.epfl.ch/0.0.2/icons/epfl-logo.svg" alt="Logo EPFL, École polytechnique fédérale de Lausanne" class="img-fluid">
+      <a href="//www.epfl.ch" class="logo">
+        <img src="//web2018.epfl.ch/0.0.2/icons/epfl-logo.svg" alt="Logo EPFL, Ecole polytechnique fédérale de Lausanne" class="img-fluid">
       </a>
 
       <h1>Archives web</h1>
       <ul aria-hidden="true" class="nav-header d-none d-xl-flex"></ul>
-      <nav aria-label="Change the language" class="nav-lang">
+      <nav aria-label="Choix de la langue" class="nav-lang">
         <ul>
           <li>
             <a href="/index.html" aria-label="English" class="">EN</a>
@@ -96,7 +101,7 @@
             </a>
           </li>
           <li class="breadcrumb-item">
-            <a href="/index.html">Archives Web</a>
+            <a href="/index.fr.html">Archives Web</a>
           </li>
         </ol>
       </nav>
@@ -109,11 +114,11 @@
     <div class="bg-gray-100 py-5 mt-5 mb-5">
       <div class="container">
         <div class="row align-items-center text-center">
-          <div class="col-md-7 text-left mb-4 mb-md-0">
+          <div class="col-md-7 text-xs-center text-md-left mb-4 mb-md-0">
             Vous pouvez faire une demande d'archivage de votre site web EPFL.
           </div>
           <div class="col-md-5 text-center">
-            <a class="btn btn-primary" role="button" href="http://atelierweb.epfl.ch/fermer-site-web">
+            <a class="btn btn-primary" role="button" href="https://atelierweb.epfl.ch/fermer-site-web">
               Demander l'archivage
             </a>
           </div>
@@ -122,7 +127,6 @@
     </div>
 
     <div class="container mb-5">
-      <h2 class="mb-4">Sites web de l'EPFL archivés</h2>
       <!-- List of archived websites -->
       <ul id="list-archived-websites">
         <!-- Remplir ici -->
@@ -132,7 +136,7 @@
     <!-- The site footer (web2018) -->
     <div class="bg-gray-100 pt-5 pb-3">
       <div class="container">
-        <footer class="footer-light" role="contentinfo">
+        <footer class="footer-light">
           <div class="row">
             <div class="col-6 mx-auto mx-md-0 mb-4 col-md-3 col-lg-2">
               <a href="//www.epfl.ch">
