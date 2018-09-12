@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="description" content="" />
 
-  <!-- Head: https://web2018.epfl.ch/0.0.2/includes/head.html -->
+  <!-- start includes.head: https://web2018.epfl.ch/0.0.2/includes/head.html -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ae0010">
 
@@ -13,11 +13,6 @@
   <link rel="icon" type="image/png" href="//web2018.epfl.ch/0.0.2/icons/favicon.png">
 
   <link rel="stylesheet" href="//web2018.epfl.ch/0.0.2/css/elements.min.css">
-  <style>
-    #list-archived-websites {
-       min-height: 1000px;
-    }
-  </style>
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,11 +24,19 @@
   ga('set', 'anonymizeIp', true);
   ga('send', 'pageview');
   </script>
+  <!-- end includes.head: https://web2018.epfl.ch/0.0.2/includes/head.html -->
+
+  <style>
+    #list-archived-websites {
+       min-height: 1000px;
+    }
+  </style>
 
 </head>
 <body>
 
   <header class="header header-light">
+    <!-- start includes.drawer-fr: https://web2018.epfl.ch/0.0.2/includes/drawer-fr.html -->
     <div class="drawer mr-3 mr-xl-0">
       <button class="drawer-toggle">
         <svg class="icon" aria-hidden="true">
@@ -46,11 +49,14 @@
         </span>
       </a>
     </div>
+    <!-- end includes.drawer-fr: https://web2018.epfl.ch/0.0.2/includes/drawer-fr.html -->
 
     <div class="header-light-content">
+      <!-- start includes.logo: https://web2018.epfl.ch/0.0.2/includes/logo.html -->
       <a href="//www.epfl.ch" class="logo">
         <img src="//web2018.epfl.ch/0.0.2/icons/epfl-logo.svg" alt="Logo EPFL, Ecole polytechnique fédérale de Lausanne" class="img-fluid">
       </a>
+      <!-- end includes.logo: https://web2018.epfl.ch/0.0.2/includes/logo.html -->
 
       <h1>Archives web</h1>
       <ul aria-hidden="true" class="nav-header d-none d-xl-flex"></ul>
@@ -66,6 +72,7 @@
       </nav>
     </div>
 
+    <!-- start includes.search-fr: https://web2018.epfl.ch/0.0.2/includes/search-fr.html -->
     <form action="//search.epfl.ch" class="d-lg-none">
       <div class="input-group search" role="search">
         <div class="input-group-prepend">
@@ -79,7 +86,9 @@
         <input type="text" class="form-control" name="q" id="search" placeholder="Rechercher">
       </div>
     </form>
+    <!-- end includes.search-fr: https://web2018.epfl.ch/0.0.2/includes/search-fr.html -->
 
+    <!-- start includes.mobile-menu: https://web2018.epfl.ch/0.0.2/includes/mobile-menu.html -->
     <div class="btn btn-secondary nav-toggle-mobile d-xl-none">
       Menu
       <div class="hamburger">
@@ -88,6 +97,8 @@
         <span></span>
       </div>
     </div>
+    <!-- end includes.mobile-menu: https://web2018.epfl.ch/0.0.2/includes/mobile-menu.html -->
+
   </header>
 
   <div class="main-container">
@@ -136,6 +147,8 @@
     <!-- The site footer (web2018) -->
     <div class="bg-gray-100 pt-5 pb-3">
       <div class="container">
+
+        <!-- start includes.footer-light-fr: https://web2018.epfl.ch/0.0.2/includes/footer-light-fr.html -->
         <footer class="footer-light">
           <div class="row">
             <div class="col-6 mx-auto mx-md-0 mb-4 col-md-3 col-lg-2">
@@ -184,16 +197,19 @@
             </div>
           </div>
         </footer>
+        <!-- end includes.footer-light-fr: https://web2018.epfl.ch/0.0.2/includes/footer-light-fr.html -->
       </div>
     </div>
   </div>
 
-  <!-- Footer scripts: https://web2018.epfl.ch/0.0.2/includes/footer-scripts.html -->
+  <!-- start includes.footer-scripts: https://web2018.epfl.ch/0.0.2/includes/footer-scripts.html -->
   <script>
     svgPath = 'https://web2018.epfl.ch/0.0.2/icons/icons.svg';
   </script>
 
   <script src="//web2018.epfl.ch/0.0.2/js/elements.min.js"></script>
+  <!-- end includes.footer-scripts: https://web2018.epfl.ch/0.0.2/includes/footer-scripts.html -->
+
   <script src="archived-websites.js"></script>
 
 </body>
