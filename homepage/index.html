@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>EPFL archived websites</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+
+  <!--#include virtual="/common/includes-web2018/head.html" -->
+
+  <style>
+    #list-archived-websites {
+       min-height: 1000px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header class="header header-light">
+    <!--#include virtual="/common/includes-web2018/drawer-en.html" -->
+
+    <div class="header-light-content">
+      <!--#include virtual="/common/includes-web2018/logo.html" -->
+
+      <h1>Web Archives</h1>
+      <ul aria-hidden="true" class="nav-header d-none d-xl-flex"></ul>
+
+      <!--#include virtual="/common/includes-web2018/search-fr.html" -->
+
+      <nav aria-label="Change the language" class="nav-lang nav-lang-short ml-auto">
+        <ul>
+          <li>
+            <span aria-label="English" class="active">EN</span>
+          </li>
+          <li>
+            <a href="/index.fr.html" aria-label="Français">FR</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!--#include virtual="/common/includes-web2018/mobile-menu.html" -->
+
+    </div>
+
+  </header>
+
+  <div class="main-container">
+
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb" class="breadcrumb-wrapper" id="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="//www.epfl.ch" title="Home" aria-label="Home">
+              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/index.html">Web Archives</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="w-100 pb-5">
+      <div class="container">
+        <h1 class="mb-4">EPFL archived websites</h1>
+      </div>
+
+      <div class="bg-gray-100 py-5 mt-5 mb-5">
+        <div class="container">
+          <div class="row align-items-center text-center">
+            <div class="col-md-7 text-xs-center text-md-left mb-4 mb-md-0">
+              You can ask for the archiving of your EPFL website.
+            </div>
+            <div class="col-md-5 text-center">
+              <a class="btn btn-primary" role="button" href="https://www.epfl.ch/campus/services/en/it-services/web-services/close-a-website/">
+                Request Archiving
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mb-5">
+        <!-- List of archived websites -->
+        <ul id="list-archived-websites">
+        </ul>
+      </div>
+    </div>
+
+    <!-- The site footer (web2018) -->
+    <div class="bg-gray-100 pt-5 pb-3">
+      <div class="container">
+        <!--#include virtual="/common/includes-web2018/footer-light-en.html" -->
+      </div>
+    </div>
+  </div>
+
+  <!--#include virtual="/common/includes-web2018/footer-scripts.html" -->
+
+  <script src="archived-websites.js"></script>
+
+</body>
+</html>
