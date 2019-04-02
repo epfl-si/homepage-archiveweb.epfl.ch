@@ -1,3 +1,6 @@
+# (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2019.
+# See the LICENSE file for more details.
+
 FROM httpd
 
 ENV TZ=Europe/Zurich
