@@ -1,7 +1,7 @@
 Resume
 ------
 
-- Homepage of archiveweb.epfl.ch that displays the liste of archived websites.
+- Homepage of archiveweb.epfl.ch that displays the list of archived websites.
 
 Dev setup
 ---------
