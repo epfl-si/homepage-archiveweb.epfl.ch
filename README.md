@@ -1,31 +1,24 @@
 Resume
 ------
 
-Tool for display the archived websites on the homepage of archiveweb.epfl.ch.
+- Homepage of archiveweb.epfl.ch that displays the list of archived websites.
 
-Setup
------
+Dev setup
+---------
 
 To retrieve the list of archived websites:
 
 ```bash
-wget https://archiveweb.epfl.ch/archived-websites.json
+docker build -t archiveweb-apache .
 ```
 
-Run
----
-
-This will start a server on http://localhost:8000
+Dev run
+-------
 
 ```bash
-python -m SimpleHTTPServer
+docker run -d --name archive-homepage -p 8080:80 archiveweb-apache
 ```
-
-or
-
-```bash
-python3 -m http.server
-```
+This will start a server on http://localhost:8080
 
 Deploy
 ------
@@ -40,8 +33,12 @@ Deploy
   * fill-archivedwebsites-json.py
 
 
-* Install a cronjob in kis user
-  * command: `sudo -u vftp /home/kis/bin/fill-archivedwebsites-json.py`
+* Install cron jobs in kis user
+  * To fill json archived websites:  
+  `0 1 * * * sudo -u vftp /home/kis/bin/fill-archivedwebsites-json.py`
+  * To get web2018 includes for homepage:  
+  `0 2 * * * sudo -u vftp wget -P /var/www/vhosts/archiveweb.epfl.ch/htdocs/common/includes-web2018/ -N -nd -r -l 1 https://web2018.epfl.ch/download-me.html`
+
 
 Developers
 ----------
