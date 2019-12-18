@@ -15,81 +15,82 @@
 
 </head>
 <body>
+  <div class="site d-flex flex-column min-vh-100">
+    <!--#include virtual="/common/includes-web2018/access-nav-fr.html" -->
 
-  <header class="header header-light">
-    <!--#include virtual="/common/includes-web2018/drawer-fr.html" -->
+    <header class="header header-light">
+      <!--#include virtual="/common/includes-web2018/drawer-fr.html" -->
 
-    <div class="header-light-content">
-      <!--#include virtual="/common/includes-web2018/logo.html" -->
+      <div class="header-light-content">
+        <!--#include virtual="/common/includes-web2018/logo.html" -->
 
-      <h1>Archives web</h1>
-      <ul aria-hidden="true" class="nav-header d-none d-xl-flex"></ul>
+        <h1>Archives web</h1>
+        <ul aria-hidden="true" class="nav-header d-none d-xl-flex"></ul>
 
-      <!--#include virtual="/common/includes-web2018/search-fr.html" -->
+        <!--#include virtual="/common/includes-web2018/search-fr.html" -->
 
-      <nav aria-label="Choix de la langue" class="nav-lang nav-lang-short ml-auto">
-        <ul>
-          <li>
-            <a href="/index.html" aria-label="English">EN</a>
-          </li>
-          <li>
-            <span class="active" aria-label="Français">FR</span>
-          </li>
-        </ul>
-      </nav>
+        <nav aria-label="Choix de la langue" class="nav-lang nav-lang-short ml-auto">
+          <ul>
+            <li>
+              <a href="/index.html" aria-label="English">EN</a>
+            </li>
+            <li>
+              <span class="active" aria-label="Français">FR</span>
+            </li>
+          </ul>
+        </nav>
 
-      <!--#include virtual="/common/includes-web2018/mobile-menu.html" -->
-
-    </div>
-
-  </header>
-
-  <div class="main-container">
-
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb" class="breadcrumb-wrapper" id="breadcrumb-wrapper">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="//www.epfl.ch" title="Home" aria-label="Home">
-              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            </a>
-          </li>
-          <li class="breadcrumb-item">
-            <a href="/index.fr.html">Archives Web</a>
-          </li>
-        </ol>
-      </nav>
-    </div>
-
-    <div class="w-100 pb-5">
-      <div class="container">
-        <h1 class="mb-4">Sites web de l'EPFL archivés</h1>
       </div>
 
-      <div class="bg-gray-100 py-5 mt-5 mb-5">
-        <div class="container">
-          <div class="row align-items-center text-center">
-            <div class="col-md-7 text-xs-center text-md-left mb-4 mb-md-0">
-              Vous pouvez faire une demande d'archivage de votre site web EPFL.
-            </div>
-            <div class="col-md-5 text-center">
-              <a class="btn btn-primary" role="button" href="https://www.epfl.ch/campus/services/ressources-informatiques/publier-sur-le-web-epfl/fermer-un-site-web/">
-                Demander l'archivage
+    </header>
+
+    <div class="main-container">
+
+      <div class="breadcrumb-container">
+        <nav aria-label="breadcrumb" class="breadcrumb-wrapper" id="breadcrumb-wrapper">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="//www.epfl.ch" title="Home" aria-label="Home">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
               </a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/index.fr.html">Archives Web</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="w-100 pb-5">
+        <div class="container">
+          <h1 class="mb-4">Sites web de l'EPFL archivés</h1>
+        </div>
+
+        <div class="bg-gray-100 py-5 mt-5 mb-5">
+          <div class="container">
+            <div class="row align-items-center text-center">
+              <div class="col-md-7 text-xs-center text-md-left mb-4 mb-md-0">
+                Vous pouvez faire une demande d'archivage de votre site web EPFL.
+              </div>
+              <div class="col-md-5 text-center">
+                <a class="btn btn-primary" role="button" href="https://www.epfl.ch/campus/services/ressources-informatiques/publier-sur-le-web-epfl/fermer-un-site-web/">
+                  Demander l'archivage
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container mb-5">
-        <!-- List of archived websites -->
-        <ul id="list-archived-websites">
-        </ul>
+        <div class="container mb-5">
+          <!-- List of archived websites -->
+          <ul id="list-archived-websites">
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- The site footer (web2018) -->
-    <div class="bg-gray-100 pt-5 pb-3">
+    <div class="bg-gray-100 pt-5 mt-auto">
       <div class="container">
         <!--#include virtual="/common/includes-web2018/footer-light-fr.html" -->
       </div>
