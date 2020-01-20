@@ -1,4 +1,4 @@
-; (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2018.
+; (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2018-2020.
 ; See the LICENSE file for more details.
 
 root = true
@@ -10,6 +10,9 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+
+[*.py]
+indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
