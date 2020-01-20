@@ -11,7 +11,7 @@ print 'Run fill-archivedwebsites-json.py...'
 
 directories = listdirs('/var/www/vhosts/archiveweb.epfl.ch/htdocs/')
 
-directories_to_remove = [ 'common', 'templates', 'fonts', 'cdn-cgi' ]
+directories_to_remove = ['common', 'templates', 'fonts', 'cdn-cgi']
 
 directories[:] = [item for item in directories if item not in directories_to_remove]
 
