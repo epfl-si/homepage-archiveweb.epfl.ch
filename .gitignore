@@ -8,3 +8,6 @@
 archived-websites.json
 
 .env
+
+# temporary folder for archives
+archives
