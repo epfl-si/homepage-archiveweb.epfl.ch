@@ -34,7 +34,7 @@ docker run -d --name archive-homepage -p 9191:80 archiveweb-apache
 To archive a site
 
 ```bash
-./bin/archive-generic-site.sh
+./bin/archive-generic-site.sh <website url>
 ```
 
 Deploy
