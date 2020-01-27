@@ -31,10 +31,25 @@ This will start a server on http://localhost:9191
 docker run -d --name archive-homepage -p 9191:80 archiveweb-apache
 ```
 
+To archive a lab
+
+```bash
+archive-wp-lab.sh <lab name>
+```
+
 To archive a site
 
 ```bash
-./bin/archive-generic-site.sh <website url>
+archive-generic-site.sh <website url>
+```
+
+Examples :
+
+```bash
+archive-wp-lab.sh fsl
+archive-wp-lab.sh tis
+
+archive-generic-site.sh https://hobelblog.epfl.ch
 ```
 
 Deploy
