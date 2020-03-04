@@ -56,13 +56,16 @@ Deploy
 ------
 
 * Deploy via FTP the following files in **'exopgesrv48:/var/www/vhosts/archiveweb.epfl.ch/htdocs/'**
-  * index.html
-  * index-fr.html
-  * archived-websites.js
+  * `common/warnings.svg`
+  * `archived-websites.js`
+  * `index.html`
+  * `index-fr.html`
+  * `robots.txt`
 
 
 * Deploy via SCP the following script in **'exopgesrv48:/home/kis/bin'**:
-  * fill-archivedwebsites-json.py
+  * `bin/fill-archivedwebsites-json.py`
+  * `bin/archiveWebsite.py`
 
 Release
 -------
