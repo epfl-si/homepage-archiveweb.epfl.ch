@@ -7,7 +7,7 @@ Setup
 Clone repository
 
 ```bash
-git clone git@github.com:epfl-idevelop/homepage-archiveweb.epfl.ch.git
+git clone git@github.com:epfl-si/homepage-archiveweb.epfl.ch.git
 ```
 
 Export `bin` folder to `PATH`
@@ -76,7 +76,7 @@ Release
 `git tag -a <version_number> -m "Web Archives - <version_number>"`  
 `git push origin master --tags`
 
-3. Create a release in GitHub ([here](https://github.com/epfl-idevelop/homepage-archiveweb.epfl.ch/releases))  
+3. Create a release in GitHub ([here](https://github.com/epfl-si/homepage-archiveweb.epfl.ch/releases))  
 tag: <version_number>  
 title: <version_number>  
 description: -
