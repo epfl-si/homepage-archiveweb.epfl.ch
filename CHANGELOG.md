@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### v1.2.1 / 2020-03-04
+
+  - Clean folder structure
+
 ### v1.2.0 / 2020-02-04
 
   - Add scripts to archive an EPFL lab
