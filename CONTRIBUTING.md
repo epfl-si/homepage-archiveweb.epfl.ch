@@ -10,10 +10,14 @@ Clone repository
 git clone git@github.com:epfl-si/homepage-archiveweb.epfl.ch.git
 ```
 
-Export `bin` folder to `PATH`
+Export `bin` folder to `PATH` and environment variables
 
 ```bash
 export PATH=$PATH:/path/to/homepage-archiveweb.epfl.ch/bin
+
+export ARCHIVE_WEB_SSH_USER=...
+export ARCHIVE_WEB_FTP_USER=...
+export ARCHIVE_WEB_FTP_PASS=...
 ```
 
 To retrieve the list of archived websites:
@@ -55,17 +59,11 @@ archive-generic-site.sh https://hobelblog.epfl.ch
 Deploy
 ------
 
-* Deploy via FTP the following files in **'exopgesrv48:/var/www/vhosts/archiveweb.epfl.ch/htdocs/'**
-  * `common/warnings.svg`
-  * `archived-websites.js`
-  * `index.html`
-  * `index-fr.html`
-  * `robots.txt`
+To deploy useful `bin` and `htdocs` files:
 
-
-* Deploy via SCP the following script in **'exopgesrv48:/home/kis/bin'**:
-  * `bin/fill-archivedwebsites-json.py`
-  * `bin/archiveWebsite.py`
+```bash
+deploy-archive-web.sh
+```
 
 Release
 -------
