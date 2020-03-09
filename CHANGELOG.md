@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### v1.3.0 / 2020-03-09
+
+  - Add script to deploy useful `bin` and `htdocs` files
+  - Add GitHub Actions to create the release
+  - Update links of GitHub organization to epfl-si
+  - Fix padding in banner
+  - Format robots.txt
+
 ### v1.2.1 / 2020-03-04
 
   - Clean folder structure
