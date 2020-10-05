@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### v1.3.1 / 2020-10-05
+
+  - Add support of Feather icons
+
 ### v1.3.0 / 2020-03-09
 
   - Add script to deploy useful `bin` and `htdocs` files
