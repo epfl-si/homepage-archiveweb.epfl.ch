@@ -42,7 +42,7 @@ def replace_string_in_file(old_string, new_string, file):
 
 def find_file_and_replace(old_string, new_string):
     DEFAULT_PATH = '.'
-    PATTERNS = ['.html']
+    PATTERNS = ['.html', '.css']
 
     file_list = \
         [os.path.join(dp, f)
