@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### v1.3.2 / 2021-02-04
+
+  - Fix archive-wp-lab script
+
 ### v1.3.1 / 2020-10-05
 
   - Add support of Feather icons
