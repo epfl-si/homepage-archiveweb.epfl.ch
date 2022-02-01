@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### v1.3.3 / 2022-02-01
+
+  - Fix text position in banner
+
 ### v1.3.2 / 2021-02-04
 
   - Fix archive-wp-lab script
