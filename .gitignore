@@ -4,6 +4,9 @@
 # pyenv
 .python-version
 
+# Web2018 templates
+homepage/common
+
 # archived websites list
 archived-websites.json
 
