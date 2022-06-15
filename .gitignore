@@ -5,7 +5,7 @@
 .python-version
 
 # Web2018 templates
-homepage/common
+homepage/common/includes-web2018
 
 # archived websites list
 archived-websites.json
@@ -14,3 +14,6 @@ archived-websites.json
 
 # temporary folder for archives
 archives
+
+# Ansible
+ansible/ansible-tmp
