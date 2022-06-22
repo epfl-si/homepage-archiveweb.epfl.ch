@@ -1,0 +1,5 @@
+- name: Archive Web Kubernetes objects
+  hosts: all
+  gather_facts: no
+  roles:
+    - role: roles/archiveweb-k8s

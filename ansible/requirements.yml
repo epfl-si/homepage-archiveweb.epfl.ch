@@ -1,2 +1,1 @@
-roles:
-  - name: epfl_si.ansible_module_openshift
+- src: epfl_si.ansible_module_openshift
