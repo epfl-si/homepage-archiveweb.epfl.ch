@@ -1,0 +1,16 @@
+# (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, 2022.
+
+docker/Dockerfile
+docker-compose*
+.dockerignore
+
+.git
+.github
+.gitignore
+
+ansible
+archives
+bin
+
+*.md
+.editorconfig
