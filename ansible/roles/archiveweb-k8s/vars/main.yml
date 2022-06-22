@@ -1,0 +1,9 @@
+openshift_namespace: 'blogs-wiki-prod'
+
+app_name: 'archiveweb'
+team: 'isas-fsd'
+
+dynamic_routes: '{{ lookup("file", "/keybase/team/epfl_archiveweb/hosts.yml") | from_yaml }}'
+nginx_config: '{{ lookup("file", "/keybase/team/epfl_archiveweb/archiveweb.conf") }}'
+
+config_map_hash: '{{ lookup("template", "../tasks/configmap.yml") | hash("sha1") }}'
