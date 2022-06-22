@@ -1,0 +1,21 @@
+- name: Archive Web - Service
+  openshift:
+    state: latest
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: '{{ app_name }}'
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+    spec:
+      type: ClusterIP
+      ports:
+        - name: '80'
+          port: 80
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        app: '{{ app_name }}'
+        role: webserver
