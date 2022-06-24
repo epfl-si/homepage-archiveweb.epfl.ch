@@ -1,0 +1,54 @@
+- name: Archive Web - Deployment
+  openshift:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      name: '{{ app_name }}'
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: '{{ app_name }}'
+      template:
+        metadata:
+          labels:
+            app: '{{ app_name }}'
+            team: '{{ team }}'
+            role: webserver
+        spec:
+          containers:
+            - name: '{{ app_name }}'
+              image: 'docker-registry.default.svc:5000/{{ openshift_namespace }}/{{ app_name }}:latest'
+              imagePullPolicy: Always
+              env:
+                - name: CONFIG_HASH
+                  value: '{{ config_map_hash }}'
+              volumeMounts:
+                - name: 'public'
+                  mountPath: '/public'
+                - name: nginx-conf-volume
+                  mountPath: /etc/nginx/conf.d
+              resources:
+                limits:
+                  cpu: 200m
+                  memory: 200Mi
+                requests:
+                  cpu: 100m
+                  memory: 100Mi
+          volumes:
+            - name: 'public'
+              persistentVolumeClaim:
+                claimName: svc0176-archive-web-app-archiveweb
+            - name: nginx-conf-volume
+              configMap:
+                name: '{{ app_name }}-nginx-config'
+          dnsPolicy: ClusterFirst
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          terminationGracePeriodSeconds: 30
+      triggers:
+        - type: ConfigChange
