@@ -1,0 +1,48 @@
+- name: Archive Web - Route
+  openshift:
+    state: latest
+    apiVersion: route.openshift.io/v1
+    kind: Route
+    metadata:
+      name: archiveweb.epfl.ch
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+        epfl.ch/visibility: public
+    spec:
+      host: archiveweb.epfl.ch
+      wildcardPolicy: None
+      port:
+        targetPort: '80'
+      tls:
+        termination: edge
+      to:
+        kind: Service
+        name: '{{ app_name }}'
+        weight: 100
+
+- name: Archive Web Dynamic - Route
+  with_items: '{{ dynamic_routes }}'
+  openshift:
+    state: latest
+    apiVersion: route.openshift.io/v1
+    kind: Route
+    metadata:
+      name: '{{ item.name }}'
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+        epfl.ch/visibility: public
+    spec:
+      host: '{{ item.name }}'
+      wildcardPolicy: None
+      port:
+        targetPort: '80'
+      tls:
+        termination: edge
+      to:
+        kind: Service
+        name: '{{ app_name }}'
+        weight: 100
