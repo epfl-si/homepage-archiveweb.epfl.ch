@@ -1,0 +1,27 @@
+- name: Route tasks
+  include_tasks:
+    file: 'route.yml'
+    apply:
+      tags: route
+  tags: route
+
+- name: Service tasks
+  include_tasks:
+    file: 'service.yml'
+    apply:
+      tags: service
+  tags: service
+
+- name: ConfigMap tasks
+  include_tasks:
+    file: 'configmap.yml'
+    apply:
+      tags: deployment
+  tags: deployment
+
+- name: Deployment tasks
+  include_tasks:
+    file: 'deployment.yml'
+    apply:
+      tags: deployment
+  tags: deployment
