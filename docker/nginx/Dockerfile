@@ -9,7 +9,7 @@ ARG WEB2018_URL=https://web2018.epfl.ch/6.1.1/
 USER root
 RUN \
   apk update && \
-  apk add --no-cache openssl=1.1.1o-r0
+  apk add --no-cache openssl=1.1.1q-r0
 
 RUN \
   mkdir /public /usr/share/nginx/errors/ /usr/share/nginx/icons/ && \
@@ -19,7 +19,7 @@ RUN \
   wget -q -O /usr/share/nginx/icons/favicon.ico ${WEB2018_URL}/icons/favicon.ico
 
 
-COPY ./docker/entrypoint.sh /
+COPY ./docker/nginx/entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
 
 VOLUME /public
