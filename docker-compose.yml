@@ -6,11 +6,11 @@ services:
   app:
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/nginx/Dockerfile
     container_name: archiveweb-app
     volumes:
       - ./homepage:/public
-      - ./docker/conf/archiveweb.conf:/etc/nginx/conf.d/archiveweb.conf
+      - ./docker/nginx/conf/archiveweb.conf:/etc/nginx/conf.d/archiveweb.conf
     ports:
       - "8080:8080"
       - "8443:8443"
