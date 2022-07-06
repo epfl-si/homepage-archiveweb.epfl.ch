@@ -1,27 +1,27 @@
-"use strict";
+'use strict';
 
-$(function() {
-  // Load json file + add websites in page....
-  $.ajax({
-    type: 'GET',
-    url: 'archived-websites.json',
-    timeout: 3000,
-    dataType: 'text',
-    success: function(data) {
-      var catalogue = JSON.parse(data);
-      catalogue.sort();
-      $.each(catalogue,function(index, value) {
-        var ul = document.getElementById("list-archived-websites");
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = ('/' + value + '/');
-        a.innerHTML = (value);
-        li.appendChild(a);
-        ul.appendChild(li);
-      });
-    },
-    error: function() {
-      alert('La requête n\'a pas abouti');
+$(function () {
+  function sortArchivedWebsites (archivedWebsite) {
+    function sortObj (obj, key) {
+      obj[key] = archivedWebsite[key];
+      return obj;
     }
-  });
+
+    return Object.keys(archivedWebsite).sort().reduce(sortObj, {});
+  };
+
+  function displayArchivedWebsites (data) {
+    const archivedWebsites = sortArchivedWebsites(data);
+    const rowLi = [];
+    for (const website of Object.keys(archivedWebsites)) {
+      rowLi.push(
+        $('<li></li>').append(
+          $('<a></a>').attr('href', '/' + website + '/').text(website)
+        )
+      );
+    }
+    $('#list-archived-websites').append(rowLi);
+  };
+
+  $.getJSON('archived-websites.json', displayArchivedWebsites);
 });
