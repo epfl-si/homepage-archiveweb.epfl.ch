@@ -36,8 +36,59 @@ body {
 <div id="archiveweb-banner">
   <img src="https://archiveweb.epfl.ch/common/warning.svg">
   <p>
-    Cette page appartient aux archives web de l'EPFL et n'est plus tenue à jour.
-    <br />
-    This page belongs to EPFL's web archive and is no longer updated.
+    Cette page appartient aux archives web de
+    l'EPFL<span id="archive-web-date-fr"></span> et n'est plus tenue &agrave; jour.
+  </p>
+  <p>
+    This page belongs to EPFL's web
+    archive<span id="archive-web-date-en"></span> and is no longer updated.
   </p>
 </div>
+
+<script>
+const dateOptions = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+};
+
+function getCurrentWebsite () {
+  const pathArray = window.location.pathname.split('/');
+  return pathArray[1];
+}
+
+function getArchivedDate (data) {
+  const currentSite = getCurrentWebsite();
+  const archivedStringDate = data[currentSite];
+  return new Date(Date.parse(archivedStringDate));
+}
+
+function displayArchivedDate (data) {
+  display(getArchivedDate(data));
+}
+
+function display (archivedDate) {
+  if (!isNaN(archivedDate)) {
+    const textEN = ', was archived on ';
+    const textFR = ', a \u00e9t\u00e9 archiv\u00e9e le ';
+    const contentFR = document.createTextNode(
+      textFR + archivedDate.toLocaleDateString('fr-FR', dateOptions)
+    );
+    const contentEN = document.createTextNode(
+      textEN + archivedDate.toLocaleDateString('en-US', dateOptions)
+    );
+    document.getElementById('archive-web-date-fr').appendChild(contentFR);
+    document.getElementById('archive-web-date-en').appendChild(contentEN);
+  }
+}
+
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    displayArchivedDate(JSON.parse(xhr.responseText));
+  }
+};
+xhr.open('GET', '/archived-websites.json', true);
+xhr.send(null);
+</script>
