@@ -14,3 +14,12 @@ services:
     ports:
       - "8080:8080"
       - "8443:8443"
+
+  job:
+    build:
+      context: .
+      dockerfile: docker/nodejs/Dockerfile
+    command: tail -F anything
+    container_name: archiveweb-job
+    volumes:
+      - ./homepage:/public

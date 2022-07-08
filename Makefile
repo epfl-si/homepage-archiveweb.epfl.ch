@@ -11,6 +11,8 @@ help:
 	@echo "  make build-force      — Force build archiveweb for local development"
 	@echo "  make up               — Brings up archiveweb for local development"
 	@echo "  make app-exec         — Enter the local development app container"
+	@echo "  make job-exec         — Enter the local development job container"
+	@echo "  make job-run          — Run job fill-archivedwebsites-json.js"
 
 .PHONY: build
 build:
@@ -29,3 +31,12 @@ up:
 .PHONY: app-exec
 app-exec:
 	@docker exec -it --user nginx archiveweb-app sh
+
+.PHONY: job-exec
+job-exec:
+	@docker exec -it --user node archiveweb-job sh
+
+.PHONY: job-run
+job-run:
+	@docker exec -it --user node archiveweb-job sh -c \
+		"node /fill-archivedwebsites-json.js"
