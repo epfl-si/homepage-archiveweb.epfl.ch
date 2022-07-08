@@ -10,7 +10,6 @@ docker-compose*
 
 ansible
 archives
-bin
 
 *.md
 .editorconfig
