@@ -25,3 +25,10 @@
     apply:
       tags: deployment
   tags: deployment
+
+- name: CronJob tasks
+  include_tasks:
+    file: 'cronjob.yml'
+    apply:
+      tags: cronjob
+  tags: cronjob
