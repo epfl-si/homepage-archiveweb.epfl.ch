@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2020.
-# See the LICENSE file for more details.
 
 import os
 import sys
