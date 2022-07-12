@@ -2,10 +2,18 @@
 
 SHELL := /bin/bash
 
+TRIVY_IMAGE = aquasec/trivy
+TRIVY_VERSION = 0.29.2
+TRIVY_VCACHE = -v /tmp/trivy/:/root/.cache/
+TRIVY_VLOCAL = -v /var/run/docker.sock:/var/run/docker.sock
+TRIVY = @docker run --rm ${TRIVY_VCACHE} ${TRIVY_VLOCAL} ${TRIVY_IMAGE}:${TRIVY_VERSION}
+
 .PHONY: help
 help:
 	@echo "Main:"
 	@echo "  make help             — Display this help"
+	@echo "Utilities:"
+	@echo "  make scan             — Scan images for vulnerabilities"
 	@echo "Local development:"
 	@echo "  make build            — Build archiveweb for local development"
 	@echo "  make build-force      — Force build archiveweb for local development"
@@ -13,6 +21,12 @@ help:
 	@echo "  make app-exec         — Enter the local development app container"
 	@echo "  make job-exec         — Enter the local development job container"
 	@echo "  make job-run          — Run job fill-archivedwebsites-json.js"
+
+.PHONY: scan
+scan:
+	@${TRIVY} image --clear-cache
+	@${TRIVY} image --severity HIGH,CRITICAL homepage-archivewebepflch_app:latest
+	@${TRIVY} image --severity HIGH,CRITICAL homepage-archivewebepflch_job:latest
 
 .PHONY: build
 build:
