@@ -1,0 +1,15 @@
+all:
+  children:
+    openshift_namespaces:
+      hosts:
+        blogs-wiki-prod: {}
+      vars:
+        ansible_connection: local
+        openshift_namespace: 'blogs-wiki-prod'
+    vms:
+      hosts:
+        itspress0001:
+          ansible_host: itspress0001.xaas.epfl.ch
+          ansible_user: root
+          ansible_port: 22
+          ansible_python_interpreter: "/usr/bin/python3"
