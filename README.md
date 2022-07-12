@@ -17,18 +17,14 @@ Contributing
 
 See [Contributing](CONTRIBUTING.md).
 
+Usage
+-----
+
+See [Usage](USAGE.md) and https://confluence.epfl.ch:8443/x/qwHkBg
+
 Developers
 ----------
 
 * [Giovanni Cangiani](https://github.com/multiscan)
 * [Olivier Bieler](https://github.com/obieler)
 * [William Belle](https://github.com/williambelle)
-
-License
--------
-
-Apache License 2.0
-
-(c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, VPSI, 2017-2020.
-
-See the [LICENSE](LICENSE) file for more details.
