@@ -66,7 +66,7 @@ while [ "$#" -gt 0 ]; do
         ansible_args+=("-m")
         shift ;;
     --prod)
-        inventory_mode="test_and_prod"
+        inventory_mode="prod"
         shift ;;
     *)
         ansible_args+=("$1")
@@ -81,10 +81,13 @@ esac
 
 set -e
 
+case "$inventory_mode" in
+  test) fatal "Do or do not. There is no try." ;;
+esac
+
 inventories () {
   case "$inventory_mode" in
-    test) echo "-i host-test" ;;
-    test_and_prod) echo "-i host-test -i host-prod" ;;
+    prod) echo "-i inventory/prod.yml" ;;
   esac
 }
 

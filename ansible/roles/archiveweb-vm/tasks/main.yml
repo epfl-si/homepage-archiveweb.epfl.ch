@@ -1,0 +1,6 @@
+- name: Copy tasks
+  include_tasks:
+    file: 'copy.yml'
+    apply:
+      tags: frontend
+  tags: frontend

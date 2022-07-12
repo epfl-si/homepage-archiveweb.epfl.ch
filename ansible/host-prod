@@ -1,2 +1,0 @@
-[archiveweb_group]
-blogs-wiki-prod      ansible_connection=local   openshift_namespace=blogs-wiki-prod

@@ -1,0 +1,18 @@
+- name: Copy front-end files
+  ansible.builtin.copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: 0644
+  with_items:
+    - src: '../../../homepage/archived-websites.js'
+      dest: '/svc0176_archive_web_app/archiveweb/'
+    - src: '../../../homepage/index.fr.html'
+      dest: '/svc0176_archive_web_app/archiveweb/'
+    - src: '../../../homepage/index.html'
+      dest: '/svc0176_archive_web_app/archiveweb/'
+    - src: '../../../homepage/banner.html'
+      dest: '/svc0176_archive_web_app/archiveweb/'
+    - src: '../../../homepage/robots.txt'
+      dest: '/svc0176_archive_web_app/archiveweb/'
+    - src: '../../../homepage/common/warning.svg'
+      dest: '/svc0176_archive_web_app/archiveweb/common/'
