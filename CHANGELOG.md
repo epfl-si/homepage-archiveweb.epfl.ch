@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v2.0.0 / 2022-07-13
+
+  - Add archive date in banner
+  - Add Ansible to handle infra on OpenShift
+  - Use folder instead of host to navigate archive
+  - Upgrade Docker environnement
+
 ### v1.3.3 / 2022-02-01
 
   - Fix text position in banner
