@@ -20,7 +20,7 @@ jobs:
   build-app:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-    name: Build
+    name: Build and scan app image
 
     steps:
       - name: Clone repository
@@ -32,3 +32,11 @@ jobs:
             --no-cache \
             --file docker/nginx/Dockerfile \
             --tag archiveweb
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@v0.5.1
+        with:
+          image-ref: 'archiveweb'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
