@@ -2,6 +2,14 @@
 
 SHELL := /bin/bash
 
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+mkfile_dir := $(dir $(mkfile_path))
+
+HADOLINT_IMAGE = hadolint/hadolint
+HADOLINT_VERSION = 2.9.3-alpine
+HADOLINT_VLOCAL = -v ${mkfile_dir}:/host:ro
+HADOLINT = @docker run --rm ${HADOLINT_VLOCAL} ${HADOLINT_IMAGE}:${HADOLINT_VERSION}
+
 TRIVY_IMAGE = aquasec/trivy
 TRIVY_VERSION = 0.29.2
 TRIVY_VCACHE = -v /tmp/trivy/:/root/.cache/
@@ -13,6 +21,7 @@ help:
 	@echo "Main:"
 	@echo "  make help             — Display this help"
 	@echo "Utilities:"
+	@echo "  make lint             — Lint code"
 	@echo "  make scan             — Scan images for vulnerabilities"
 	@echo "Local development:"
 	@echo "  make build            — Build archiveweb for local development"
@@ -27,6 +36,10 @@ scan:
 	@${TRIVY} image --clear-cache
 	@${TRIVY} image --severity HIGH,CRITICAL homepage-archivewebepflch_app:latest
 	@${TRIVY} image --severity HIGH,CRITICAL homepage-archivewebepflch_job:latest
+
+.PHONY: lint
+lint:
+	@${HADOLINT} sh -c "hadolint /host/docker/*/Dockerfile"
 
 .PHONY: build
 build:
