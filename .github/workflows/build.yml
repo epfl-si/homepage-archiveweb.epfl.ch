@@ -16,3 +16,67 @@ jobs:
       - name: Lint
         run: |
           make lint
+
+  build-app:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    name: Build app image
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Build app image
+        run: |
+          docker build . \
+            --no-cache \
+            --file docker/nginx/Dockerfile \
+            --tag archiveweb
+
+      - name: Log in to the Container registry
+        if: github.event.ref_type == 'tag'
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push app image
+        if: github.event.ref_type == 'tag'
+        run: |
+          IMAGE_ID="ghcr.io/epfl-si/archiveweb"
+
+          docker tag archiveweb $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
+
+  build-job:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    name: Build job image
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Build job image
+        run: |
+          docker build . \
+            --no-cache \
+            --file docker/nodejs/Dockerfile \
+            --tag archiveweb-job
+
+      - name: Log in to the Container registry
+        if: github.event.ref_type == 'tag'
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push job image
+        if: github.event.ref_type == 'tag'
+        run: |
+          IMAGE_ID="ghcr.io/epfl-si/archiveweb-job"
+
+          docker tag archiveweb-job $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
