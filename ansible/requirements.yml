@@ -1,1 +1,5 @@
-- src: epfl_si.ansible_module_openshift
+collections:
+  - community.general
+
+roles:
+  - src: epfl_si.ansible_module_openshift
