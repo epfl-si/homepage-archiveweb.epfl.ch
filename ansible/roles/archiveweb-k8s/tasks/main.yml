@@ -1,3 +1,10 @@
+- name: Image tasks
+  include_tasks:
+    file: 'image.yml'
+    apply:
+      tags: image
+  tags: image
+
 - name: Route tasks
   include_tasks:
     file: 'route.yml'

@@ -1,0 +1,23 @@
+- name: Pull archiveweb latest app image
+  community.general.docker_image:
+    name: 'ghcr.io/epfl-si/{{ app_name }}:latest'
+    source: pull
+
+- name: Pull archiveweb latest job image
+  community.general.docker_image:
+    name: 'ghcr.io/epfl-si/{{ app_name }}-job:latest'
+    source: pull
+
+- name: Push archiveweb latest app image
+  community.docker.docker_image:
+    name: 'ghcr.io/epfl-si/{{ app_name }}:latest'
+    repository: 'os-docker-registry.epfl.ch/{{ openshift_namespace }}/{{ app_name }}:latest'
+    push: yes
+    source: local
+
+- name: Push archiveweb latest job image
+  community.docker.docker_image:
+    name: 'ghcr.io/epfl-si/{{ app_name }}-job:latest'
+    repository: 'os-docker-registry.epfl.ch/{{ openshift_namespace }}/{{ app_name }}:latest'
+    push: yes
+    source: local
