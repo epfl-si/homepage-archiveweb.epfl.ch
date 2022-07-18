@@ -34,6 +34,7 @@ jobs:
             --tag archiveweb
 
       - name: Log in to the Container registry
+        if: github.event.ref_type == 'tag'
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ghcr.io
@@ -41,6 +42,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push app image
+        if: github.event.ref_type == 'tag'
         run: |
           IMAGE_ID="ghcr.io/epfl-si/archiveweb"
 
@@ -64,6 +66,7 @@ jobs:
             --tag archiveweb-job
 
       - name: Log in to the Container registry
+        if: github.event.ref_type == 'tag'
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ghcr.io
@@ -71,6 +74,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push job image
+        if: github.event.ref_type == 'tag'
         run: |
           IMAGE_ID="ghcr.io/epfl-si/archiveweb-job"
 
