@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v2.1.0 / 2022-07-18
+
+  - Add GitHub Actions build
+  - Add hadolint linter
+  - Build and push image in ghcr
+  - Deploy images with Ansible
+
 ### v2.0.0 / 2022-07-13
 
   - Add archive date in banner
