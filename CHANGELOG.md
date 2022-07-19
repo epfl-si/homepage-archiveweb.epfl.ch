@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### v2.1.1 / 2022-07-19
+
+  - Check for Keybase being present
+  - Fix push condition to ghcr
+
 ### v2.1.0 / 2022-07-18
 
   - Add GitHub Actions build
