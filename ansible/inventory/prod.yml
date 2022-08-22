@@ -6,6 +6,7 @@ all:
       vars:
         ansible_connection: local
         openshift_namespace: 'blogs-wiki-prod'
+        ansible_python_interpreter: '{{archivewebsible_suitcase_dir}}/bin/python3'
     vms:
       hosts:
         itspress0001:
