@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v2.1.2 / 2022-08-23
+
+  - Set `ansible_python_interpreter`
+  - Fix shebang in `find-and-replace-string.py`
+  - Fix paragraph in banner
+  - Improve documentation for release and deploy
+
 ### v2.1.1 / 2022-07-19
 
   - Check for Keybase being present
