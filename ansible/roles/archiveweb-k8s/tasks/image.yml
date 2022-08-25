@@ -1,11 +1,11 @@
 - name: Pull archiveweb latest app image
-  community.general.docker_image:
+  community.docker.docker_image:
     tls_hostname: localhost
     name: 'ghcr.io/epfl-si/{{ app_name }}:latest'
     source: pull
 
 - name: Pull archiveweb latest job image
-  community.general.docker_image:
+  community.docker.docker_image:
     tls_hostname: localhost
     name: 'ghcr.io/epfl-si/{{ app_name }}-job:latest'
     source: pull
