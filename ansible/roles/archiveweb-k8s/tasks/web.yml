@@ -1,3 +1,41 @@
+- name: Archive Web - ConfigMap
+  openshift:
+    state: latest
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: '{{ app_name }}-nginx-config'
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+    data:
+      archiveweb.conf: |
+        {{ nginx_config }}
+  register: _archiveweb_configmap
+
+- name: Archive Web - Service
+  openshift:
+    state: latest
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: '{{ app_name }}'
+      namespace: '{{ openshift_namespace }}'
+      labels:
+        app: '{{ app_name }}'
+        team: '{{ team }}'
+    spec:
+      type: ClusterIP
+      ports:
+        - name: '80'
+          port: 80
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        app: '{{ app_name }}'
+        role: webserver
+
 - name: Archive Web - Deployment
   openshift:
     apiVersion: extensions/v1beta1
@@ -24,9 +62,6 @@
             - name: '{{ app_name }}'
               image: 'docker-registry.default.svc:5000/{{ openshift_namespace }}/{{ app_name }}:latest'
               imagePullPolicy: Always
-              env:
-                - name: CONFIG_HASH
-                  value: '{{ config_map_hash }}'
               volumeMounts:
                 - name: 'public'
                   mountPath: '/public'
@@ -50,5 +85,24 @@
           restartPolicy: Always
           schedulerName: default-scheduler
           terminationGracePeriodSeconds: 30
-      triggers:
-        - type: ConfigChange
+
+- name: Restart Archive Web
+  when: >-
+    ('web.restart' in ansible_run_tags)
+    or
+    ( (_archiveweb_configmap | default({})) is changed )
+  local_action:
+    module: shell
+    cmd: "oc patch deployment/{{ app_name }} --namespace {{ openshift_namespace }} --patch
+      '{
+          \"spec\": {
+            \"template\": {
+              \"metadata\": {
+                \"annotations\": {
+                  \"last-restart\": \"{{ ansible_date_time.iso8601 }}\"
+                }
+              }
+            }
+          }
+        }'"
+  tags: web.restart
