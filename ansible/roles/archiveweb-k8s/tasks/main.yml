@@ -12,26 +12,14 @@
       tags: route
   tags: route
 
-- name: Service tasks
+- name: Web tasks
   include_tasks:
-    file: 'service.yml'
+    file: 'web.yml'
     apply:
-      tags: service
-  tags: service
-
-- name: ConfigMap tasks
-  include_tasks:
-    file: 'configmap.yml'
-    apply:
-      tags: deployment
-  tags: deployment
-
-- name: Deployment tasks
-  include_tasks:
-    file: 'deployment.yml'
-    apply:
-      tags: deployment
-  tags: deployment
+      tags: web
+  tags:
+    - web
+    - web.restart
 
 - name: CronJob tasks
   include_tasks:

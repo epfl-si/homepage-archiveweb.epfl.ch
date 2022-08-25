@@ -1,6 +1,6 @@
 - name: Archive Web Kubernetes objects
   hosts: openshift_namespaces
-  gather_facts: no
+  gather_facts: yes
   roles:
     - role: roles/archiveweb-k8s
 
