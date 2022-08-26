@@ -19,6 +19,12 @@ To archive a lab
 archive-wp-lab.sh <lab name>
 ```
 
+To archive an association
+
+```bash
+archive-wp-assoc.sh <association name>
+```
+
 To archive a site
 
 ```bash
@@ -30,6 +36,9 @@ Examples :
 ```bash
 archive-wp-lab.sh fsl
 archive-wp-lab.sh tis
+
+archive-wp-assoc.sh ase
+archive-wp-assoc.sh hola
 
 archive-generic-site.sh https://hobelblog.epfl.ch
 ```
