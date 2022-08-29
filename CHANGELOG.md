@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v2.2.0 / 2022-08-29
+
+  - Add script to archive association
+  - Add restart option and regroup config
+  - Improve ansible config for docker images
+  - Clean requirements
+
 ### v2.1.2 / 2022-08-23
 
   - Set `ansible_python_interpreter`
