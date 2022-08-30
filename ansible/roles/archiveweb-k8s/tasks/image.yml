@@ -2,12 +2,14 @@
   community.docker.docker_image:
     tls_hostname: localhost
     name: 'ghcr.io/epfl-si/{{ app_name }}:latest'
+    force_source: yes
     source: pull
 
 - name: Pull archiveweb latest job image
   community.docker.docker_image:
     tls_hostname: localhost
     name: 'ghcr.io/epfl-si/{{ app_name }}-job:latest'
+    force_source: yes
     source: pull
 
 - name: Push archiveweb latest app image
