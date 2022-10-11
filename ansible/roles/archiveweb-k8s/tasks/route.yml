@@ -10,6 +10,9 @@
         app: '{{ app_name }}'
         team: '{{ team }}'
         epfl.ch/visibility: public
+      annotations:
+        haproxy.router.openshift.io/balance: roundrobin
+        haproxy.router.openshift.io/disable_cookies: 'true'
     spec:
       host: archiveweb.epfl.ch
       wildcardPolicy: None
@@ -35,6 +38,9 @@
         app: '{{ app_name }}'
         team: '{{ team }}'
         epfl.ch/visibility: public
+      annotations:
+        haproxy.router.openshift.io/balance: roundrobin
+        haproxy.router.openshift.io/disable_cookies: 'true'
     spec:
       host: '{{ item.name }}'
       wildcardPolicy: None
