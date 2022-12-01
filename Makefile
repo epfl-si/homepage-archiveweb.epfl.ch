@@ -39,7 +39,7 @@ scan:
 
 .PHONY: lint
 lint:
-	@${HADOLINT} sh -c "hadolint /host/docker/*/Dockerfile"
+	@${HADOLINT} sh -c "hadolint -c /host/.hadolint.yml /host/docker/*/Dockerfile"
 
 .PHONY: build
 build:
