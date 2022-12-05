@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### v2.2.1 / 2022-12-05
+
+  - Add extra package `docker` to the suitcase
+  - Update Trivy from 0.29.2 to 0.35.0
+  - Update nginx from 1.22.0 to 1.22.1
+  - Update hadolint from 2.9.3 to 2.12.0
+  - Disable hadolint rule DL3018 (pin version)
+  - Disables the use of cookies to track connections
+  - Force pull when the image already exist
+
 ### v2.2.0 / 2022-08-29
 
   - Add script to archive association
