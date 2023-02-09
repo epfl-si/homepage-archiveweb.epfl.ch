@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### v2.2.2 / 2022-02-09
+
+  - Update Web2018 to 6.2.0
+  - Update Header light
+  - Update docker/login-action to v2
+
 ### v2.2.1 / 2022-12-05
 
   - Add extra package `docker` to the suitcase
