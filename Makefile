@@ -51,7 +51,6 @@ build-force:
 
 .PHONY: up
 up:
-	@wget -P homepage/common/includes-web2018/ -N -nd -r -l 1 -e robots=off https://web2018.epfl.ch/download-me.html
 	@wget -O homepage/archived-websites.json https://archiveweb.epfl.ch/archived-websites.json
 	@docker-compose up
 
