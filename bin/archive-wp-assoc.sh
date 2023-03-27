@@ -10,7 +10,7 @@ die() {
 [ -n "$1" ] || die "Please provide the name of an association."
 
 # https://github.com/epfl-si/wp-ops/blob/master/ansible/vars/wordpress-vars.yml
-WP_VERSION=5.5
+WP_VERSION=6.1
 WP_THEME_PATH=wp/${WP_VERSION}/wp-content/themes/wp-theme-2018
 
 ASSOC_NAME=$1
