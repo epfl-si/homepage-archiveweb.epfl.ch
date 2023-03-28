@@ -4,7 +4,7 @@ FROM nginxinc/nginx-unprivileged:1.22.1-alpine
 
 ENV TZ=Europe/Zurich
 
-ARG WEB2018_URL=https://web2018.epfl.ch/6.2.0/
+ARG WEB2018_URL=https://web2018.epfl.ch/6.2.2/
 
 USER root
 RUN \
