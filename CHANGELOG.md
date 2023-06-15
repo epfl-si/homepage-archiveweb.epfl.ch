@@ -1,12 +1,17 @@
 Changelog
 =========
 
-### v2.2.3 / 2022-03-29
+### v2.3.0 / 2023-06-15
+
+  - Update nginx-unprivileged to 1.24.0
+  - Update Web2018 to v6.3.0
+
+### v2.2.3 / 2023-03-29
 
   - Update WordPress version from 5.5 to 6.1
   - Update Web2018 to 6.2.2
 
-### v2.2.2 / 2022-02-09
+### v2.2.2 / 2023-02-09
 
   - Update Web2018 to 6.2.0
   - Update Header light
