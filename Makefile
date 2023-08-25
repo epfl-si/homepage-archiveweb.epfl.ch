@@ -43,16 +43,16 @@ lint:
 
 .PHONY: build
 build:
-	@docker-compose build
+	@docker compose build
 
 .PHONY: build-force
 build-force:
-	@docker-compose build --force-rm --no-cache --pull
+	@docker compose build --force-rm --no-cache --pull
 
 .PHONY: up
 up:
 	@wget -O homepage/archived-websites.json https://archiveweb.epfl.ch/archived-websites.json
-	@docker-compose up
+	@docker compose up
 
 .PHONY: app-exec
 app-exec:
