@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### v2.3.1 / 2023-11-02
+
+  - Update Elements to 4.5.1
+  - Migrate to Docker Compose v2
+
 ### v2.3.0 / 2023-06-15
 
   - Update nginx-unprivileged to 1.24.0
