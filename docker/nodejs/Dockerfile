@@ -1,6 +1,6 @@
 # (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, 2022.
 
-FROM node:18-alpine
+FROM node:20-alpine
 
 COPY bin/fill-archivedwebsites-json.js /
 RUN chmod a+x /fill-archivedwebsites-json.js
