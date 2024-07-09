@@ -32,7 +32,7 @@
     apiVersion: route.openshift.io/v1
     kind: Route
     metadata:
-      name: '{{ item.name }}'
+      name: '{{ item }}'
       namespace: '{{ openshift_namespace }}'
       labels:
         app: '{{ app_name }}'
@@ -42,7 +42,7 @@
         haproxy.router.openshift.io/balance: roundrobin
         haproxy.router.openshift.io/disable_cookies: 'true'
     spec:
-      host: '{{ item.name }}'
+      host: '{{ item }}'
       wildcardPolicy: None
       port:
         targetPort: '80'
