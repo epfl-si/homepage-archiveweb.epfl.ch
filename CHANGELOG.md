@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### v2.4.0 / 2024-07-09
+
+  - Rewrite archivewebsible
+  - Simplify hosts structure
+  - Update Node.js to 20
+  - Update Elements to 4.9.1
+  - Update docker/login-action to v3
+  - Update actions/checkout to v4
+  - Update nginx-unprivileged to 1.26.1
+
 ### v2.3.1 / 2023-11-02
 
   - Update Elements to 4.5.1
