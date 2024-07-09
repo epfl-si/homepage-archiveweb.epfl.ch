@@ -2,10 +2,6 @@
 #
 # This is a wrapper around ansible / ansible-playbook.
 #
-# Usage ("ansible" mode):
-#
-#   ./exportsible -m raw all -a 'uptime'
-#
 # Usage ("ansible-playbook" mode):
 #
 #   ./ansible/archivewebsible
@@ -14,75 +10,50 @@
 # - https://www.ansible.com/overview/how-ansible-works
 # - https://github.com/jdauphant/awesome-ansible
 
-cd "$(dirname "$(realpath "$0")")"
+set -e
+cd "$(cd "$(dirname "$0")"; pwd)"
 
-# One can override these on the command line
-playbook_flags=""
-ansible_flags=""
+help () {
+    fatal <<HELP_MSG
+Usage:
 
-warn () {
-  if [ -n "$1" ]; then
-    echo "$@" >&2
-  else
-    cat >&2
-  fi
+  $0 [ -t sometag ] [ ... ]
+HELP_MSG
 }
 
-fatal () {
-  warn "$@"
-  exit 1
-}
-
-platform_check () {
+ensure_suitcase () {
   if ! test -f ansible-tmp/.versions 2>/dev/null; then
     curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
       SUITCASE_DIR=$PWD/ansible-tmp \
-      SUITCASE_ANSIBLE_VERSION=3.4.0 \
+      SUITCASE_ANSIBLE_VERSION=6.7.0 \
       SUITCASE_ANSIBLE_REQUIREMENTS=requirements.yml \
       SUITCASE_WITH_KEYBASE=1 \
       SUITCASE_PIP_EXTRA=docker \
-      sh -x
+      bash -x
   fi
-  export PATH="$PWD/ansible-tmp/bin:$PATH"
-  export ANSIBLE_ROLES_PATH="$PWD/ansible-tmp/roles"
 
-  oc_check
+  . ansible-tmp/lib.sh
+  ensure_ansible_runtime
 }
 
-oc_check () {
-  if ! oc projects >/dev/null 2>&1; then
-    echo "Please login to openshift:"
-    oc login
-  fi
-}
-
-###########################################################################
-
-mode=ansible-playbook
-inventory_mode="test"
+ensure_suitcase
+ensure_oc_login
 
 declare -a ansible_args
 ansible_args=(-e "archivewebsible_suitcase_dir=$PWD/ansible-tmp")
+inventory_mode="test"
 while [ "$#" -gt 0 ]; do
   case "$1" in
-    -m) mode=ansible
-        ansible_args+=("-m")
-        shift ;;
+    --help)
+      help ;;
     --prod)
-        inventory_mode="prod"
-        shift ;;
+      inventory_mode="prod"
+      shift ;;
     *)
-        ansible_args+=("$1")
-        shift ;;
-    esac
+      ansible_args+=("$1")
+      shift ;;
+  esac
 done
-
-# https://github.com/ansible/ansible/issues/32499, https://bugs.python.org/issue35219
-case "$(uname -s)" in
-   Darwin) export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES ;;
-esac
-
-set -e
 
 case "$inventory_mode" in
   test) fatal "Do or do not. There is no try." ;;
@@ -94,13 +65,4 @@ inventories () {
   esac
 }
 
-platform_check
-case "$mode" in
-  ansible-playbook)
-    ansible-playbook $playbook_flags $(inventories) "${ansible_args[@]}" \
-                      playbook.yml
-    ;;
-  ansible)
-    ansible $(inventories) $ansible_flags "${ansible_args[@]}"
-    ;;
-esac
+ansible-playbook $(inventories) playbook.yml "${ansible_args[@]}"
