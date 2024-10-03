@@ -1,6 +1,6 @@
 # (c) ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE, Switzerland, 2022.
 
-FROM nginxinc/nginx-unprivileged:1.26.1-alpine
+FROM nginxinc/nginx-unprivileged:1.26.2-alpine
 
 ENV TZ=Europe/Zurich
 
