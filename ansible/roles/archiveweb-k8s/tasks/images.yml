@@ -1,0 +1,27 @@
+- name: Pull archiveweb latest app image
+  community.docker.docker_image:
+    name: '{{ registry_src }}/{{ app_name }}:{{ tag }}'
+    force_source: yes
+    source: pull
+
+- name: Pull archiveweb latest job image
+  community.docker.docker_image:
+    name: '{{ registry_src }}/{{ app_name }}-job:{{ tag }}'
+    force_source: yes
+    source: pull
+
+- name: Push archiveweb latest app image
+  community.docker.docker_image:
+    name: '{{ registry_src }}/{{ app_name }}:{{ tag }}'
+    repository: '{{ registry_dst }}/{{ app_name }}:{{ tag }}'
+    push: yes
+    force_tag: yes
+    source: local
+
+- name: Push archiveweb latest job image
+  community.docker.docker_image:
+    name: '{{ registry_src }}/{{ app_name }}-job:{{ tag }}'
+    repository: '{{ registry_dst }}/{{ app_name }}-job:{{ tag }}'
+    push: yes
+    force_tag: yes
+    source: local

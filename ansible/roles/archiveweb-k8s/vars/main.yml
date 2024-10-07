@@ -1,7 +1,10 @@
-openshift_namespace: 'blogs-wiki-prod'
-
 app_name: 'archiveweb'
 team: 'isas-fsd'
+
+registry_src: 'ghcr.io/epfl-si'
+registry_dst: 'quay-its.epfl.ch/svc0041'
+
+secrets: '{{ lookup("file", "/keybase/team/epfl_archiveweb/secrets.yml") | from_yaml }}'
 
 dynamic_routes: '{{ lookup("file", "/keybase/team/epfl_archiveweb/hosts.yml") | from_yaml }}'
 nginx_config: '{{ lookup("file", "/keybase/team/epfl_archiveweb/archiveweb.conf") }}'
