@@ -22,31 +22,45 @@ HELP_MSG
 }
 
 ensure_suitcase () {
-  if ! test -f ansible-tmp/.versions 2>/dev/null; then
+  if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
     curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
-      SUITCASE_DIR=$PWD/ansible-tmp \
+      SUITCASE_DIR=$PWD/ansible-deps-cache \
       SUITCASE_ANSIBLE_VERSION=6.7.0 \
       SUITCASE_ANSIBLE_REQUIREMENTS=requirements.yml \
       SUITCASE_WITH_KEYBASE=1 \
-      SUITCASE_PIP_EXTRA=docker \
+      SUITCASE_PIP_EXTRA="kubernetes docker" \
       bash -x
   fi
 
-  . ansible-tmp/lib.sh
+  . ansible-deps-cache/lib.sh
   ensure_ansible_runtime
 }
 
+ensure_oc4_login () {
+  local clustername="$1"; shift
+
+  if ! oc projects >/dev/null 2>&1; then
+    echo "Logging into OpenShift cluster at $cluster_url..."
+    oc login "$clustername" --web
+  else
+    if ! oc whoami --show-server | grep -q "$cluster_url"; then
+      echo "Logging into OpenShift cluster at $cluster_url..."
+      oc login "$clustername" --web
+    fi
+  fi
+}
+
 ensure_suitcase
-ensure_oc_login
 
 declare -a ansible_args
-ansible_args=(-e "archivewebsible_suitcase_dir=$PWD/ansible-tmp")
+ansible_args=(-e "archivewebsible_suitcase_dir=$PWD/ansible-deps-cache")
 inventory_mode="test"
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --help)
       help ;;
     --prod)
+      cluster_url="https://api.ocpitsp0001.xaas.epfl.ch:6443"
       inventory_mode="prod"
       shift ;;
     *)
@@ -54,6 +68,8 @@ while [ "$#" -gt 0 ]; do
       shift ;;
   esac
 done
+
+ensure_oc4_login "$cluster_url"
 
 case "$inventory_mode" in
   test) fatal "Do or do not. There is no try." ;;
