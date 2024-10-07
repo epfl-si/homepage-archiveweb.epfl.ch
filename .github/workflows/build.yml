@@ -49,6 +49,9 @@ jobs:
           docker tag archiveweb $IMAGE_ID:latest
           docker push $IMAGE_ID:latest
 
+          docker tag archiveweb $IMAGE_ID:$GITHUB_REF_NAME
+          docker push $IMAGE_ID:$GITHUB_REF_NAME
+
   build-job:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
@@ -80,3 +83,6 @@ jobs:
 
           docker tag archiveweb-job $IMAGE_ID:latest
           docker push $IMAGE_ID:latest
+
+          docker tag archiveweb-job $IMAGE_ID:$GITHUB_REF_NAME
+          docker push $IMAGE_ID:$GITHUB_REF_NAME
