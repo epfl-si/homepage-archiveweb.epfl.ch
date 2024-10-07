@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### v2.4.1 / 2024-10-07
+
+  - Update docker image tagging strategy
+  - Update Trivy to 0.56.1
+  - Update nginx to 1.26.2
+  - Update Elements to 5.0.1
+  - Fix epfl_si.ansible-module-openshift name
+
 ### v2.4.0 / 2024-07-09
 
   - Rewrite archivewebsible
