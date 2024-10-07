@@ -12,4 +12,4 @@ archived-websites.json
 archives
 
 # Ansible
-ansible/ansible-tmp
+ansible/ansible-deps-cache
