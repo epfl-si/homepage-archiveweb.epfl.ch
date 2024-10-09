@@ -1,33 +1,33 @@
 - name: Images tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'images.yml'
     apply:
       tags: images
   tags: images
 
 - name: Storage tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'storage.yml'
     apply:
       tags: storage
   tags: storage
 
 - name: Secrets tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'secrets.yml'
     apply:
       tags: secrets
   tags: secrets
 
 - name: Routes tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'routes.yml'
     apply:
       tags: routes
   tags: routes
 
 - name: Nginx tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'nginx.yml'
     apply:
       tags: nginx
@@ -35,9 +35,9 @@
     - nginx
     - nginx.restart
 
-# - name: CronJob tasks
-#   include_tasks:
-#     file: 'cronjob.yml'
-#     apply:
-#       tags: cronjob
-#   tags: cronjob
+- name: CronJob tasks
+  ansible.builtin.include_tasks:
+    file: 'cronjob.yml'
+    apply:
+      tags: cronjob
+  tags: cronjob

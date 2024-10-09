@@ -15,7 +15,7 @@
               spec:
                 containers:
                   - name: '{{ app_name }}-job'
-                    image: '{{ registry_dst }}/{{ app_name }}-job:{{ tag }}'
+                    image: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
                     command: ["node", "/archiveweb/fill-archivedwebsites-json.js"]
                     volumeMounts:
                       - name: 'public'

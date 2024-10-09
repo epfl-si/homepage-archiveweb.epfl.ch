@@ -73,7 +73,7 @@
             serviceAccountName: '{{ app_name }}-service-account'
             containers:
               - name: '{{ app_name }}'
-                image: '{{ registry_dst }}/{{ app_name }}:{{ tag }}'
+                image: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
                 imagePullPolicy: Always
                 volumeMounts:
                   - name: 'public'
@@ -105,7 +105,7 @@
     or
     ( (_archiveweb_configmap | default({})) is changed )
   local_action:
-    module: shell
+    module: ansible.builtin.shell
     cmd: "oc patch deployment/{{ app_name }} --namespace {{ openshift_namespace }} --patch
       '{
           \"spec\": {

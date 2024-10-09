@@ -25,10 +25,10 @@ ensure_suitcase () {
   if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
     curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
       SUITCASE_DIR=$PWD/ansible-deps-cache \
-      SUITCASE_ANSIBLE_VERSION=6.7.0 \
+      SUITCASE_ANSIBLE_VERSION=10.5.0 \
       SUITCASE_ANSIBLE_REQUIREMENTS=requirements.yml \
       SUITCASE_WITH_KEYBASE=1 \
-      SUITCASE_PIP_EXTRA="kubernetes docker" \
+      SUITCASE_PIP_EXTRA="kubernetes" \
       bash -x
   fi
 
@@ -39,14 +39,11 @@ ensure_suitcase () {
 ensure_oc4_login () {
   local clustername="$1"; shift
 
-  if ! oc projects >/dev/null 2>&1; then
-    echo "Logging into OpenShift cluster at $cluster_url..."
-    oc login "$clustername" --web
-  else
-    if ! oc whoami --show-server | grep -q "$cluster_url"; then
+  if ! oc whoami > /dev/null 2>&1 || ! oc whoami --show-server | grep -q "$cluster_url"; then
       echo "Logging into OpenShift cluster at $cluster_url..."
-      oc login "$clustername" --web
-    fi
+      oc login "$cluster_url" --web;
+  else
+      echo "Already logged into $cluster_url."
   fi
 }
 
