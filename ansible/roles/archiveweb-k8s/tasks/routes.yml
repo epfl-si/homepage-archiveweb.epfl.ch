@@ -9,7 +9,7 @@
         labels:
           app: '{{ app_name }}'
           team: '{{ team }}'
-          route: '{{ route_availability }}'
+          route: '{{ routes_availability }}'
         annotations:
           haproxy.router.openshift.io/balance: roundrobin
           haproxy.router.openshift.io/disable_cookies: 'true'
@@ -37,7 +37,7 @@
         labels:
           app: '{{ app_name }}'
           team: '{{ team }}'
-          route: '{{ route_availability }}'
+          route: '{{ routes_availability }}'
         annotations:
           haproxy.router.openshift.io/balance: roundrobin
           haproxy.router.openshift.io/disable_cookies: 'true'
