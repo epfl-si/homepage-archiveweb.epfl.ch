@@ -13,6 +13,7 @@
           spec:
             template:
               spec:
+                serviceAccountName: '{{ app_name }}-service-account'
                 containers:
                   - name: '{{ app_name }}-job'
                     image: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'

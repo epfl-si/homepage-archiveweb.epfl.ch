@@ -25,7 +25,7 @@ ensure_suitcase () {
   if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
     curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
       SUITCASE_DIR=$PWD/ansible-deps-cache \
-      SUITCASE_ANSIBLE_VERSION=10.5.0 \
+      SUITCASE_ANSIBLE_VERSION=9.11.0 \
       SUITCASE_ANSIBLE_REQUIREMENTS=requirements.yml \
       SUITCASE_WITH_KEYBASE=1 \
       SUITCASE_PIP_EXTRA="kubernetes" \

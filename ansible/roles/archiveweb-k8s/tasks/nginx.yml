@@ -59,7 +59,7 @@
           app: '{{ app_name }}'
           team: '{{ team }}'
       spec:
-        replicas: 1
+        replicas: 2
         selector:
           matchLabels:
             app: '{{ app_name }}'
@@ -74,7 +74,6 @@
             containers:
               - name: '{{ app_name }}'
                 image: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
-                imagePullPolicy: Always
                 volumeMounts:
                   - name: 'public'
                     mountPath: '/public'
@@ -82,11 +81,11 @@
                     mountPath: /etc/nginx/conf.d
                 resources:
                   limits:
-                    cpu: 1000m
-                    memory: 1Gi
+                    cpu: 250m
+                    memory: 256Mi
                   requests:
-                    cpu: 500m
-                    memory: 512Mi
+                    cpu: 100m
+                    memory: 128Mi
             volumes:
               - name: 'public'
                 persistentVolumeClaim:
