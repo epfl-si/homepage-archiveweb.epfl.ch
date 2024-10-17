@@ -1,5 +1,5 @@
 - name: Copy tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: 'copy.yml'
     apply:
       tags: frontend

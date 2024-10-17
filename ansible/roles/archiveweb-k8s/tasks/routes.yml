@@ -1,0 +1,54 @@
+- name: Archive Web - Route
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: route.openshift.io/v1
+      kind: Route
+      metadata:
+        name: archiveweb.epfl.ch
+        namespace: '{{ openshift_namespace }}'
+        labels:
+          app: '{{ app_name }}'
+          team: '{{ team }}'
+          route: '{{ routes_availability }}'
+        annotations:
+          haproxy.router.openshift.io/balance: roundrobin
+          haproxy.router.openshift.io/disable_cookies: 'true'
+      spec:
+        host: archiveweb.epfl.ch
+        wildcardPolicy: None
+        port:
+          targetPort: '80'
+        tls:
+          termination: edge
+          insecureEdgeTerminationPolicy: Redirect
+        to:
+          kind: Service
+          name: '{{ app_name }}'
+
+- name: Archive Web Dynamic - Route
+  with_items: '{{ dynamic_routes }}'
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: route.openshift.io/v1
+      kind: Route
+      metadata:
+        name: '{{ item }}'
+        namespace: '{{ openshift_namespace }}'
+        labels:
+          app: '{{ app_name }}'
+          team: '{{ team }}'
+          route: '{{ routes_availability }}'
+        annotations:
+          haproxy.router.openshift.io/balance: roundrobin
+          haproxy.router.openshift.io/disable_cookies: 'true'
+      spec:
+        host: '{{ item }}'
+        wildcardPolicy: None
+        port:
+          targetPort: '80'
+        tls:
+          termination: edge
+          insecureEdgeTerminationPolicy: Redirect
+        to:
+          kind: Service
+          name: '{{ app_name }}'
