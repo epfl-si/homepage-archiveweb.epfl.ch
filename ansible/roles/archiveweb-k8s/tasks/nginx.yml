@@ -60,6 +60,10 @@
           team: '{{ team }}'
       spec:
         replicas: 2
+        strategy:
+          type: RollingUpdate
+          rollingUpdate:
+            maxUnavailable: 1
         selector:
           matchLabels:
             app: '{{ app_name }}'
@@ -71,6 +75,13 @@
               role: webserver
           spec:
             serviceAccountName: '{{ app_name }}-service-account'
+            affinity:
+              podAntiAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  - labelSelector:
+                      matchLabels:
+                        app: '{{ app_name }}'
+                    topologyKey: kubernetes.io/hostname
             containers:
               - name: '{{ app_name }}'
                 image: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
