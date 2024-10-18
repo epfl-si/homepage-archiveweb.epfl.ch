@@ -1,0 +1,27 @@
+- name: Pull archiveweb latest app image
+  community.docker.docker_image:
+    name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
+    force_source: true
+    source: pull
+
+- name: Pull archiveweb latest job image
+  community.docker.docker_image:
+    name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
+    force_source: true
+    source: pull
+
+- name: Push archiveweb latest app image
+  community.docker.docker_image:
+    name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
+    repository: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
+    push: true
+    force_tag: true
+    source: local
+
+- name: Push archiveweb latest job image
+  community.docker.docker_image:
+    name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
+    repository: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
+    push: true
+    force_tag: true
+    source: local

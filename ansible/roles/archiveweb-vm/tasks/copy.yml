@@ -2,7 +2,7 @@
   ansible.builtin.copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
-    mode: 0644
+    mode: '0644'
   with_items:
     - src: '../../../homepage/archived-websites.js'
       dest: '/svc0176_archive_web_app/archiveweb/'

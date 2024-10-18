@@ -2,11 +2,15 @@ all:
   children:
     openshift_namespaces:
       hosts:
-        blogs-wiki-prod: {}
+        archiveweb-openshift: {}
       vars:
         ansible_connection: local
-        openshift_namespace: 'blogs-wiki-prod'
+        openshift_namespace: 'svc0041p-web-archiving'
         ansible_python_interpreter: '{{archivewebsible_suitcase_dir}}/bin/python3'
+        routes_availability: public
+        pv_name: svc0041p-web-archiving-pv
+        pv_size: 20Gi
+        tag: 2.4.1
     vms:
       hosts:
         itspress0001:
