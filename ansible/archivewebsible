@@ -15,9 +15,18 @@ cd "$(cd "$(dirname "$0")"; pwd)"
 
 help () {
     fatal <<HELP_MSG
-Usage:
+Usage: $0 [options]
 
-  $0 [ -t sometag ] [ ... ]
+Environment options:
+  --prod     Deploy to production environment.
+
+Common options:
+  --list-tags      List all available tags.
+  --list-tasks     List all tasks that would be executed.
+
+Examples:
+  $0 --prod
+  $0 --prod -t nginx.restart
 HELP_MSG
 }
 
