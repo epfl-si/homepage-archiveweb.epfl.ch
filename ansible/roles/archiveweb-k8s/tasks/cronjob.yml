@@ -7,6 +7,7 @@
         name: '{{ app_name }}'
         namespace: '{{ openshift_namespace }}'
       spec:
+        timeZone: 'Europe/Zurich'
         schedule: '0 18 * * *'
         concurrencyPolicy: 'Replace'
         jobTemplate:
@@ -17,7 +18,7 @@
                 containers:
                   - name: '{{ app_name }}-job'
                     image: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
-                    command: ["node", "/archiveweb/fill-archivedwebsites-json.js"]
+                    command: ["node", "/fill-archivedwebsites-json.js"]
                     volumeMounts:
                       - name: 'public'
                         mountPath: '/public'
