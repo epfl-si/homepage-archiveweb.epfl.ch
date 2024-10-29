@@ -1,0 +1,7 @@
+{
+  "ansible.python.interpreterPath": "ansible/ansible-deps-cache/bin/python3",
+  "files.exclude": {
+    "ansible/ansible-deps-cache": true
+  },
+  "python.analysis.exclude": ["ansible/ansible-deps-cache/**"]
+}
