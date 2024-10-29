@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### v3.0.0 / 2024-10-29
+
+  - Migrate to OpenShift 4
+
 ### v2.4.1 / 2024-10-07
 
   - Update docker image tagging strategy
