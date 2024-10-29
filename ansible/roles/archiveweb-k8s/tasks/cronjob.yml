@@ -1,34 +1,36 @@
 - name: Archive Web - CronJob
-  openshift:
-    state: latest
-    apiVersion: batch/v1beta1
-    kind: CronJob
-    metadata:
-      name: '{{ app_name }}'
-      namespace: '{{ openshift_namespace }}'
-    spec:
-      schedule: '0 18 * * *'
-      concurrencyPolicy: 'Replace'
-      jobTemplate:
-        spec:
-          template:
-            spec:
-              containers:
-                - name: '{{ app_name }}-job'
-                  image: 'docker-registry.default.svc:5000/blogs-wiki-prod/archiveweb-job:latest'
-                  command: ["node", "/fill-archivedwebsites-json.js"]
-                  volumeMounts:
-                    - name: 'public'
-                      mountPath: '/public'
-                  resources:
-                    limits:
-                      cpu: 200m
-                      memory: 200Mi
-                    requests:
-                      cpu: 100m
-                      memory: 100Mi
-              volumes:
-                - name: 'public'
-                  persistentVolumeClaim:
-                    claimName: svc0176-archive-web-app-archiveweb
-              restartPolicy: Never
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: batch/v1
+      kind: CronJob
+      metadata:
+        name: '{{ app_name }}'
+        namespace: '{{ openshift_namespace }}'
+      spec:
+        timeZone: 'Europe/Zurich'
+        schedule: '0 18 * * *'
+        concurrencyPolicy: 'Replace'
+        jobTemplate:
+          spec:
+            template:
+              spec:
+                serviceAccountName: '{{ app_name }}-service-account'
+                containers:
+                  - name: '{{ app_name }}-job'
+                    image: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
+                    command: ["node", "/fill-archivedwebsites-json.js"]
+                    volumeMounts:
+                      - name: 'public'
+                        mountPath: '/public'
+                    resources:
+                      limits:
+                        cpu: 200m
+                        memory: 200Mi
+                      requests:
+                        cpu: 100m
+                        memory: 100Mi
+                volumes:
+                  - name: 'public'
+                    persistentVolumeClaim:
+                      claimName: '{{ app_name }}-pvc'
+                restartPolicy: Never

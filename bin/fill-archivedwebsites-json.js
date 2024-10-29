@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 
-const ARCHIVED_WEBSITES_PATH = '/public';
-const ARCHIVED_WEBSITES_FILE = '/public/archived-websites.json';
+const ARCHIVED_WEBSITES_PATH = '/public/archiveweb';
+const ARCHIVED_WEBSITES_FILE = '/public/archiveweb/archived-websites.json';
 
 // Folders to ignore
 const toIgnore = new Set([
