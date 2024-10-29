@@ -1,5 +1,9 @@
 {
   "ansible.python.interpreterPath": "ansible/ansible-deps-cache/bin/python3",
+  "files.associations": {
+    "**/inventory/*.yml": "ansible",
+    "**/tasks/*.yml": "ansible"
+  },
   "files.exclude": {
     "ansible/ansible-deps-cache": true
   },
