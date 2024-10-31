@@ -4,8 +4,9 @@ Contributing
 Prerequisites
 -------------
 
-* Access to our Keybase `/keybase/team/epfl_archiveweb` directory.
-* Access to EPFL's OpenShift and namespace `blogs-wiki-prod`.
+- Groups `vra_p_svc0041`.
+- Keybase `epfl_archiveweb`.
+- Access to ghcr.io via a personal access tokens (PATs).
 
 Help
 -----
@@ -22,14 +23,14 @@ make build
 make up
 ```
 
-This will start a server on http://localhost:8080
+This will start a server on [localhost:8080](http://localhost:8080).
 
 Release
 -------
 
 1. Update the file [CHANGELOG.md](CHANGELOG.md)
-
-2. Create a tag  
+2. Bump the tag in the inventory.
+3. Create the tag  
 `git tag -a <version_number> -m "Web Archives - <version_number>"`  
 `git push origin master --tags`
 
