@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### v3.1.0 / 2024-11-04
+
+  - Add Ansible-lint in VS Code
+  - Add VS Code recommended extensions
+  - Rewrite nginx restart
+  - Remove local https
+  - Update CONTRIBUTING for OpenShift 4
+
 ### v3.0.0 / 2024-10-29
 
   - Migrate to OpenShift 4
