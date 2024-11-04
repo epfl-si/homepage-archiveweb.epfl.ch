@@ -11,7 +11,6 @@ services:
       - ./docker/nginx/conf/archiveweb.conf:/etc/nginx/conf.d/archiveweb.conf
     ports:
       - "8080:8080"
-      - "8443:8443"
 
   job:
     build:
