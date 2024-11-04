@@ -32,11 +32,8 @@ RUN \
     ${WEB2018_URL}/includes/footer-light-fr.html \
     ${WEB2018_URL}/includes/footer-light-en.html
 
-COPY ./docker/nginx/entrypoint.sh /
-RUN chmod a+x /entrypoint.sh
-
 VOLUME /public
 
 USER nginx
-EXPOSE 8080 8443
-ENTRYPOINT ["/entrypoint.sh"]
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
