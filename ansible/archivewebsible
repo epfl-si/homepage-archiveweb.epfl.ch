@@ -75,11 +75,11 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-ensure_oc4_login "$cluster_url"
-
 case "$inventory_mode" in
   test) fatal "Do or do not. There is no try." ;;
 esac
+
+ensure_oc4_login "$cluster_url"
 
 inventories () {
   case "$inventory_mode" in
