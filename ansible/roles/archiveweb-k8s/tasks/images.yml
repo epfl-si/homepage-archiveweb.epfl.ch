@@ -1,27 +1,23 @@
-- name: Pull archiveweb latest app image
+- name: Archive Web - Pull nginx image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
-    force_source: true
     source: pull
 
-- name: Pull archiveweb latest job image
+- name: Archive Web - Pull job image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
-    force_source: true
     source: pull
 
-- name: Push archiveweb latest app image
+- name: Archive Web - Push nginx image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
     repository: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
     push: true
-    force_tag: true
     source: local
 
-- name: Push archiveweb latest job image
+- name: Archive Web - Push job image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
     repository: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
     push: true
-    force_tag: true
     source: local
