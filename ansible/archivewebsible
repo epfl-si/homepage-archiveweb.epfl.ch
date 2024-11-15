@@ -26,7 +26,7 @@ Common options:
 
 Examples:
   $0 --prod
-  $0 --prod -t nginx.restart
+  $0 --prod -t archiveweb.nginx.restart
 HELP_MSG
 }
 

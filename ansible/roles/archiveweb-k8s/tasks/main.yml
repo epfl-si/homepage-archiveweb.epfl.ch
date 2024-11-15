@@ -2,42 +2,42 @@
   ansible.builtin.include_tasks:
     file: 'images.yml'
     apply:
-      tags: images
-  tags: images
+      tags: archiveweb.images
+  tags: archiveweb.images
 
 - name: Storage tasks
   ansible.builtin.include_tasks:
     file: 'storage.yml'
     apply:
-      tags: storage
-  tags: storage
+      tags: archiveweb.storage
+  tags: archiveweb.storage
 
 - name: Secrets tasks
   ansible.builtin.include_tasks:
     file: 'secrets.yml'
     apply:
-      tags: secrets
-  tags: secrets
+      tags: archiveweb.secrets
+  tags: archiveweb.secrets
 
 - name: Routes tasks
   ansible.builtin.include_tasks:
     file: 'routes.yml'
     apply:
-      tags: routes
-  tags: routes
+      tags: archiveweb.routes
+  tags: archiveweb.routes
 
 - name: Nginx tasks
   ansible.builtin.include_tasks:
     file: 'nginx.yml'
     apply:
-      tags: nginx
+      tags: archiveweb.nginx
   tags:
-    - nginx
-    - nginx.restart
+    - archiveweb.nginx
+    - archiveweb.nginx.restart
 
 - name: CronJob tasks
   ansible.builtin.include_tasks:
     file: 'cronjob.yml'
     apply:
-      tags: cronjob
-  tags: cronjob
+      tags: archiveweb.cronjob
+  tags: archiveweb.cronjob
