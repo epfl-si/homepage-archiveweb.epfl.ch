@@ -2,5 +2,5 @@
   ansible.builtin.include_tasks:
     file: 'copy.yml'
     apply:
-      tags: frontend
-  tags: frontend
+      tags: archiveweb.frontend
+  tags: archiveweb.frontend

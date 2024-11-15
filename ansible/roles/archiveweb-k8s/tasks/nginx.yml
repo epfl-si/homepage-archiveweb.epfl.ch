@@ -111,7 +111,7 @@
 
 - name: Archive Web - Restart
   when: >-
-    ('nginx.restart' in ansible_run_tags)
+    ('archiveweb.nginx.restart' in ansible_run_tags)
     or
     ( (_archiveweb_configmap | default({})) is changed )
   kubernetes.core.k8s:
@@ -126,4 +126,4 @@
           metadata:
             annotations:
               last-restart: '{{ ansible_date_time.iso8601 }}'
-  tags: nginx.restart
+  tags: archiveweb.nginx.restart
