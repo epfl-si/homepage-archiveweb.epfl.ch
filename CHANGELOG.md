@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v3.2.0 / 2024-11-19
+
+  - Add VS Code extension for nginx
+  - Improve Ansible tags
+  - Clean Ansible and Kubernetes Objects
+  - Remove test environment
+
 ### v3.1.0 / 2024-11-04
 
   - Add Ansible-lint in VS Code
