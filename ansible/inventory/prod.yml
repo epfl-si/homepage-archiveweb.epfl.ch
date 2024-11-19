@@ -10,7 +10,7 @@ all:
         routes_availability: public
         pv_name: svc0041p-web-archiving-pv
         pv_size: 20Gi
-        tag: 3.1.0
+        tag: 3.2.0
     vms:
       hosts:
         itspress0001:
