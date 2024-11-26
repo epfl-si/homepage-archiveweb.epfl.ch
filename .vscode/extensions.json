@@ -2,6 +2,7 @@
   "recommendations": [
     "ahmadalli.vscode-nginx-conf",
     "editorconfig.editorconfig",
+    "exiasr.hadolint",
     "ms-python.python",
     "redhat.ansible"
   ]
