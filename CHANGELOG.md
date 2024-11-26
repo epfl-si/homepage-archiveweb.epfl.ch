@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### v3.2.1 / 2024-11-26
+
+  - Add label version for Deployment
+  - Add VS Code extension for hadolint
+
 ### v3.2.0 / 2024-11-19
 
   - Add VS Code extension for nginx
