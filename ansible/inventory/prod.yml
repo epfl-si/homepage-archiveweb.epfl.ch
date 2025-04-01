@@ -6,7 +6,7 @@ all:
       vars:
         ansible_connection: local
         openshift_namespace: 'svc0041p-web-archiving'
-        ansible_python_interpreter: '{{archivewebsible_suitcase_dir}}/bin/python3'
+        ansible_python_interpreter: '{{ ansible_playbook_python }}'
         routes_availability: public
         pv_name: svc0041p-web-archiving-pv
         pv_size: 20Gi
