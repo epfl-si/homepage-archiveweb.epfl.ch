@@ -1,7 +1,7 @@
 Web Archives
 ============
 
-[![GitHub Actions](https://github.com/epfl-si/homepage-archiveweb.epfl.ch/workflows/Build/badge.svg?branch=master)](https://github.com/epfl-si/homepage-archiveweb.epfl.ch/actions/)
+[![Build](https://github.com/epfl-si/homepage-archiveweb.epfl.ch/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/epfl-si/homepage-archiveweb.epfl.ch/actions/workflows/build.yml)
 
 Synopsis
 --------
