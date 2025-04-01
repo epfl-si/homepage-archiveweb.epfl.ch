@@ -6,6 +6,17 @@
       metadata:
         name: '{{ app_name }}'
         namespace: '{{ openshift_namespace }}'
+        labels:
+          team: '{{ team }}'
+          app.kubernetes.io/component: 'backend'
+          app.kubernetes.io/managed-by: 'ansible'
+          app.kubernetes.io/name: '{{ app_name }}-job'
+          app.kubernetes.io/part-of: '{{ app_name }}'
+          app.kubernetes.io/version: '{{ tag }}'
+          app.openshift.io/runtime: 'nodejs'
+        annotations:
+          app.openshift.io/vcs-uri: 'https://github.com/epfl-si/homepage-archiveweb.epfl.ch/'
+          app.openshift.io/vcs-ref: '{{ tag }}'
       spec:
         timeZone: 'Europe/Zurich'
         schedule: '0 18 * * *'
