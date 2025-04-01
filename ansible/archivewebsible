@@ -59,7 +59,6 @@ ensure_oc4_login () {
 ensure_suitcase
 
 declare -a ansible_args
-ansible_args=(-e "archivewebsible_suitcase_dir=$PWD/ansible-deps-cache")
 inventory_mode="test"
 while [ "$#" -gt 0 ]; do
   case "$1" in
