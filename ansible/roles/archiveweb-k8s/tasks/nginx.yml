@@ -54,9 +54,16 @@
         name: '{{ app_name }}'
         namespace: '{{ openshift_namespace }}'
         labels:
-          app: '{{ app_name }}'
           team: '{{ team }}'
-          version: '{{ tag }}'
+          app.kubernetes.io/component: 'frontend'
+          app.kubernetes.io/managed-by: 'ansible'
+          app.kubernetes.io/name: '{{ app_name }}'
+          app.kubernetes.io/part-of: '{{ app_name }}'
+          app.kubernetes.io/version: '{{ tag }}'
+          app.openshift.io/runtime: 'nginx'
+        annotations:
+          app.openshift.io/vcs-uri: 'https://github.com/epfl-si/homepage-archiveweb.epfl.ch/'
+          app.openshift.io/vcs-ref: '{{ tag }}'
       spec:
         replicas: 2
         strategy:
