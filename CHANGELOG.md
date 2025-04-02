@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### v3.2.2 / 2025-04-02
+
+  - Add labels and annotations for Topology view
+  - Simplify `ansible_python_interpreter`
+  - Update nginx to 1.26.3
+  - Update Node.js to 22
+  - Update Elements to 5.2.0
+  - Fix assets path for labs
+  - Fix status badge
+
 ### v3.2.1 / 2024-11-26
 
   - Add label version for Deployment
