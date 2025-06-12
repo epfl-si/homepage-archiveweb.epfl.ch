@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### v3.2.3 / 2025-06-12
+
+  - Tweak cpu
+  - Optimize CronJob execution
+  - Remove epfl-logo script  
+  - Update nginx to 1.28.0
+
 ### v3.2.2 / 2025-04-02
 
   - Add labels and annotations for Topology view
