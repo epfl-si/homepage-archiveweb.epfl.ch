@@ -8,7 +8,7 @@ services:
     container_name: archiveweb-app
     volumes:
       - ./homepage:/public
-      - ./docker/nginx/conf/archiveweb.conf:/etc/nginx/conf.d/archiveweb.conf
+      - ./docker/nginx/conf/:/etc/nginx/conf.d/
     ports:
       - "8080:8080"
 
