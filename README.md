@@ -22,7 +22,7 @@ See [Contributing](CONTRIBUTING.md).
 Usage
 -----
 
-See [Usage](USAGE.md) and https://confluence.epfl.ch:8443/x/qwHkBg
+See [Usage](USAGE.md) and [sidoc.epfl.ch](https://sidoc.epfl.ch/doc/archiver-un-site-ydHdtkJEqX).
 
 Developers
 ----------
