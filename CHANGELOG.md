@@ -1,6 +1,16 @@
 Changelog
 =========
 
+### v3.3.0 / 2026-02-25
+
+  - Simplify Dockerfile
+  - Update link to documentation
+  - Update Node.js to 24
+  - Update nginx to 1.28.2
+  - Update actions/checkout to v6
+  - Update Elements to 5.7.0
+  - Fix banner style
+
 ### v3.2.3 / 2025-06-12
 
   - Tweak cpu
