@@ -6,7 +6,7 @@ mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 mkfile_dir := $(dir $(mkfile_path))
 
 HADOLINT_IMAGE = hadolint/hadolint
-HADOLINT_VERSION = 2.12.0-alpine
+HADOLINT_VERSION = v2.14.0-alpine
 HADOLINT_VLOCAL = -v ${mkfile_dir}:/host:ro
 HADOLINT = @docker run --rm ${HADOLINT_VLOCAL} ${HADOLINT_IMAGE}:${HADOLINT_VERSION}
 
