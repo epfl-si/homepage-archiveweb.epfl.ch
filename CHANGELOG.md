@@ -1,6 +1,17 @@
 Changelog
 =========
 
+### v3.4.0 / 2026-07-13
+
+  - Add PodDisruptionBudget
+  - Add Pod Anti-Affinity by zone
+  - Improve rollingUpdate strategy
+  - Tweak memory request
+  - Update Hadolint to 2.14.0
+  - Update Trivy to 0.72.0
+  - Update Node.js to 26
+  - Update nginx to 1.30
+
 ### v3.3.0 / 2026-02-25
 
   - Simplify Dockerfile
