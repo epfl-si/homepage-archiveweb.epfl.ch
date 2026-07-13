@@ -125,6 +125,20 @@
                 configMap:
                   name: '{{ app_name }}-nginx-config'
 
+- name: Archive Web - PodDisruptionBudget
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: policy/v1
+      kind: PodDisruptionBudget
+      metadata:
+        name: '{{ app_name }}'
+        namespace: '{{ openshift_namespace }}'
+      spec:
+        minAvailable: 1
+        selector:
+          matchLabels:
+            app: '{{ app_name }}'
+
 - name: Archive Web - Restart
   when: >-
     ('archiveweb.nginx.restart' in ansible_run_tags)
