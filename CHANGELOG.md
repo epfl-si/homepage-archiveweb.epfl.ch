@@ -1,6 +1,14 @@
 Changelog
 =========
 
+### v3.5.0 / 2026-10-26
+
+  - Add webanalytics.epfl.ch
+  - Simplify images mirroring between registries
+  - Replace actions/create-release with gh CLI
+  - Use nginx/nginx-unprivileged base image
+  - Update docker/login-action to v4
+
 ### v3.4.0 / 2026-07-13
 
   - Add PodDisruptionBudget
