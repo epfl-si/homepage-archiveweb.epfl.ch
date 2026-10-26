@@ -1,23 +1,13 @@
-- name: Archive Web - Pull nginx image
-  community.docker.docker_image:
-    name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
-    source: pull
-
-- name: Archive Web - Pull job image
-  community.docker.docker_image:
-    name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
-    source: pull
-
-- name: Archive Web - Push nginx image
+- name: Archive Web - Mirror nginx image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}:{{ tag }}'
     repository: '{{ quay_registry }}/{{ app_name }}:{{ tag }}'
     push: true
-    source: local
+    source: pull
 
-- name: Archive Web - Push job image
+- name: Archive Web - Mirror job image
   community.docker.docker_image:
     name: '{{ ghcr_registry }}/{{ app_name }}-job:{{ tag }}'
     repository: '{{ quay_registry }}/{{ app_name }}-job:{{ tag }}'
     push: true
-    source: local
+    source: pull
